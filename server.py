@@ -61,8 +61,10 @@ class Server(object):
 
 
 def main():
-    server = Server()
-    server.connect_port(int(sys.argv[1]))
+    host = sys.argv[1]
+    port = int(sys.argv[2])
+    server = Server(host, port)
+    server.connect_port()
     server.start()
     try:
         while True:
@@ -70,6 +72,6 @@ def main():
             eval(f'server.{tmp}')
     except KeyboardInterrupt:
         exit()
-        
+
 if __name__ == '__main__':
     main()
