@@ -1,3 +1,4 @@
+import sys
 import time
 import socket
 import pickle
@@ -57,3 +58,18 @@ class Server(object):
 
     def stop(self):
         self.is_running = False
+
+
+def main():
+    server = Server()
+    server.connect_port(int(sys.argv[1]))
+    server.start()
+    try:
+        while True:
+            tmp = input()
+            eval(f'server.{tmp}')
+    except KeyboardInterrupt:
+        exit()
+        
+if __name__ == '__main__':
+    main()
