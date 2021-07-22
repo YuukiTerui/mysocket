@@ -4,7 +4,7 @@ import pickle
 class _const:
     class ConstError(TypeError):
         pass
-    PICKLE_PROTOCOL = 4
+    PICKLE_PROTOCOL = 3
 
     MSGLEN = 2 ** 12
     MSGSTART = pickle.dumps('<<', protocol=PICKLE_PROTOCOL)
