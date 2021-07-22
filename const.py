@@ -6,7 +6,7 @@ class _const:
         pass
     PICKLE_PROTOCOL = 3
 
-    MSGLEN = 2 ** 12
+    MSGLEN = 2 ** 14
     MSGSTART = pickle.dumps('<<', protocol=PICKLE_PROTOCOL)
     MSGEND = pickle.dumps('>>', protocol=PICKLE_PROTOCOL)
 
