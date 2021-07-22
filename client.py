@@ -26,7 +26,7 @@ class Client:
             return -1
         msg = pickle.dumps(msg)
         self.sock.send(msg)
-        
+        self.sock.send(const.MSGEND)
         
 
         #msg = self.sock.recv(const.MSGLEN)

@@ -4,9 +4,9 @@ import pickle
 from threading import Thread
 
 import const
-const.MSGLEN = 2 ** 10
 
-class Server:
+
+class Server(object):
     def __init__(self, host=None, port=None) -> None:
         self.host = host if host else socket.gethostbyname(socket.gethostname())
         self.port = port
@@ -28,7 +28,7 @@ class Server:
         data = b''
         while True:
             tmp = client.recv(const.MSGLEN)
-            if len(tmp) <= 0:
+            if tmp == const.MSGEND:
                 break
             data += tmp
         data = pickle.loads(data)
