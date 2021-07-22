@@ -8,6 +8,8 @@ class _const:
     MSGSTART = pickle.dumps('<<')
     MSGEND = pickle.dumps('>>')
 
+    PICKLE_PROTOCOL = 4
+
     def __setattr__(self, name, value) -> None:
         if name in self.__dict__:
             raise self.ConstError
