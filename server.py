@@ -32,7 +32,7 @@ class Server(object):
             if tmp == const.MSGEND:
                 break
             data += tmp
-        data = pickle.loads(data)
+        data = pickle.loads(data, protcol=const.PICKLE_PROTOCOL)
         return data
 
     def client_process(self, client, address):

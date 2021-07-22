@@ -4,11 +4,11 @@ import pickle
 class _const:
     class ConstError(TypeError):
         pass
-    MSGLEN = 2 ** 12
-    MSGSTART = pickle.dumps('<<')
-    MSGEND = pickle.dumps('>>')
-
     PICKLE_PROTOCOL = 4
+
+    MSGLEN = 2 ** 12
+    MSGSTART = pickle.dumps('<<', protocol=PICKLE_PROTOCOL)
+    MSGEND = pickle.dumps('>>', protocol=PICKLE_PROTOCOL)
 
     def __setattr__(self, name, value) -> None:
         if name in self.__dict__:

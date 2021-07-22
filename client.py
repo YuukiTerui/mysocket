@@ -24,7 +24,7 @@ class Client:
     def send(self, msg):
         if not self.sock:
             return -1
-        msg = pickle.dumps(msg)
+        msg = pickle.dumps(msg, const.PICKLE_PROTOCOL)
         self.sock.send(msg)
         self.sock.send(const.MSGEND)
         
